@@ -22,8 +22,6 @@ app.use(cors());
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  ssl: true,
-  tlsAllowInvalidCertificates: true,
  // Add this line to handle MongoDB duplicate key errors
 }); 
 
