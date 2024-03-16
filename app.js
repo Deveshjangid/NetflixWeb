@@ -22,14 +22,16 @@ app.use(cors());
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  ssl: true,
+  tlsAllowInvalidCertificates: true,
  // Add this line to handle MongoDB duplicate key errors
-});
+}); 
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', () => {
   console.log('Connected to MongoDB');
-});
+}); 
 
 const transporter = nodemailer.createTransport({    
   service: 'Gmail',
